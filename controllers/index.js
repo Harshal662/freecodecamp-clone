@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const Course = require('../models/course.js')
 
 module.exports.renderCourses = async (req,res)=>{
