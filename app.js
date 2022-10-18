@@ -49,12 +49,15 @@ app.use(flash())
 
 app.use(passport.initialize())
 app.use(passport.session())
+
 passport.use(new LocalStrategy(User.authenticate()))
+
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "/auth/google/callback",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+    callbackURL: "http://localhost:3000/auth/google/callback",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+
 },
     async function (accessToken, refreshToken, profile, cb) {
         await User.findOrCreate(
@@ -68,8 +71,10 @@ passport.use(new GoogleStrategy({
             })
     }
 ))
+
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
+
 
 app.use((req,res,next)=>{
     res.locals.currentUser = req.user
@@ -82,8 +87,8 @@ app.use((req,res,next)=>{
 app.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 )
-app.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/page1' }),(req, res) => {
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),(req, res) => {
     req.flash('success', 'LogedIn Successfully!')
     res.redirect('/page2');
 })
