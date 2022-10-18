@@ -8,6 +8,9 @@
   },
   "author": "Harshal Abak",
   "license": "ISC",
+  "engines": {
+    "node": "18.4.0"
+  },
   "dependencies": {
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",
