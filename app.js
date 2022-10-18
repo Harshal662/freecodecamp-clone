@@ -113,7 +113,7 @@ app.use((err,req,res,next)=>{
 })
 
 let port = process.env.PORT;
-if (port == nill || port ==""){
+if (port == null || port ==""){
     port=3000;
 } 
 
