@@ -1,0 +1,14 @@
+<% layout('/layouts/boilerplate')  %> 
+
+<div class="w-50 mt-3 mx-auto text-center">
+    <h2>Welcome to freeCodeCamp.org</h2>
+
+
+    <div class="mx-5 my-4">
+        <% for(let course of courses){ %>
+            <a href="#" class=" text-decoration-none "><div class="py-2 my-1 text-dark bg-secondary border border-2 border-dark hello"><b><%= course.title %></b>  (<%= course.duration %> hours)</div></a>
+        <% } %>
+    </div>
+    
+</div>
+
