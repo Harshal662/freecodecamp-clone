@@ -4,7 +4,7 @@
   "description": "A copy of website free code camp",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Harshal Abak",
   "license": "ISC",
