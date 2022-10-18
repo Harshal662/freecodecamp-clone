@@ -83,7 +83,7 @@ app.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 )
 app.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),(req, res) => {
+  passport.authenticate('google', { failureRedirect: '/page1' }),(req, res) => {
     req.flash('success', 'LogedIn Successfully!')
     res.redirect('/page2');
 })
