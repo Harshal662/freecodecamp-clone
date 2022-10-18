@@ -54,7 +54,7 @@ passport.use(new LocalStrategy(User.authenticate()))
 
 passport.use(new GoogleStrategy({
 
-    clientID: process.env.CLIENT_ID,
+    clientID:"1082173540810-rfha3pvll4h8l68klvngdb7gqtl18581.apps.googleusercontent.com",
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "http://localhost:3000/auth/google/callback",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
