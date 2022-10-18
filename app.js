@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local')
 const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 const session = require('express-session')
 const flash = require('connect-flash')
+const MemoryStore = require('memorystore')(session)
 
 
 const User = require('./models/users.js')
@@ -37,6 +38,9 @@ const sessionConfig = {
     name: 'SeeKersSession',
     secret: 'Dont look here its a secret',
     resave: false,
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    }),
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
