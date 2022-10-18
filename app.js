@@ -60,7 +60,7 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.use(new GoogleStrategy({
     clientSecret: process.env.CLIENT_SECRET,
     clientID: process.env.CLIENT_ID,
-    callbackURL: "https%3A%2F%2Fevening-atoll-19569.herokuapp.com%2Fauth%2Fgoogle%2Fcallback",
+    callbackURL: "https://evening-atoll-19569.herokuapp.com/auth/google/callback",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 
 },
