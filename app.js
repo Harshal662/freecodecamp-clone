@@ -1,4 +1,5 @@
 require('dotenv').config()
+const dotenv = require('dotenv');
 const express = require('express')
 const path = require('path')
 const ejsMate = require('ejs-mate')
@@ -59,7 +60,7 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.use(new GoogleStrategy({
     clientSecret: process.env.CLIENT_SECRET,
     clientID: process.env.CLIENT_ID,
-    callbackURL: "http://localhost:3000/auth/google/callback",
+    callbackURL: "/auth/google/callback",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 
 },
